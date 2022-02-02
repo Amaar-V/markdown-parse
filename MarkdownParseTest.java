@@ -10,7 +10,7 @@ public class MarkdownParseTest {
     
     private ArrayList<String> links;
     private ArrayList<String> expected;
-    
+
     public void tester() throws IOException {
         expected = new ArrayList<>();
         expected.add("https://something.com");
@@ -20,14 +20,20 @@ public class MarkdownParseTest {
             Path fileName = Path.of(string);
 	        String contents = Files.readString(fileName);
             links = MarkdownParse.getLinks(contents);
-            test();
+            testMarkdown();
         }
     }
 
     @Test
-    public void test()
+    public void testMarkdown()
     {
         assertEquals(expected, links);
+    }
+
+    @Test
+    public void testBasic()
+    {
+        assertEquals(6, 2*3);
     }
 
 }

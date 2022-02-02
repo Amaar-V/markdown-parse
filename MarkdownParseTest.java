@@ -7,8 +7,8 @@ import java.util.List;
 import org.junit.*;
 
 public class MarkdownParseTest {
-    @Test
-    public void tester() throws IOException {
+    
+    public void setup() throws IOException {
         ArrayList<String> expected = new ArrayList<>();
         expected.add("https://something.com");
         expected.add("some-page.html");
@@ -17,7 +17,13 @@ public class MarkdownParseTest {
             Path fileName = Path.of(string);
 	        String contents = Files.readString(fileName);
             ArrayList<String> links = MarkdownParse.getLinks(contents);
-            assertEquals(expected, links);
+            tester(expected, links);
         }
+    }
+
+    @Test
+    public void tester(ArrayList<String>expected, ArrayList<String>links)
+    {
+        assertEquals(expected, links);
     }
 }

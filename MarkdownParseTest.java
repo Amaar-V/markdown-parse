@@ -21,7 +21,7 @@ public class MarkdownParseTest {
 	        String contents = Files.readString(fileName);
             links = MarkdownParse.getLinks(contents);
             testMarkdown();
-        } //ff
+        }
     }
 
     @Test
